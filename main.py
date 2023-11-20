@@ -5,6 +5,7 @@ from pq import pq
 from quadratic import quadratics
 from clear import clear
 from linear_equation import linear_solve
+from median_differential import median_diff
 
 clear()
 
@@ -65,8 +66,19 @@ def HAHALMAO():
 				clear()
 				pqa()
 
+		def diff():
+			clear()
+			median_diff()
+			XD = input("\nAgain?(Y/n): ")
+			if XD == "n":
+				clear()
+				lol()
+			else:
+				clear()
+				diff()
+
 		def lol():
-			xdlol = input("\ntrigonometry(t), pq(pq), quadratics(q), linear functions(l) or exit?: ")
+			xdlol = input("\ntrigonometry(t), pq(pq), quadratics(q), linear functions(l), median differential(m) or exit?: ")
 			if xdlol == "pq":
 				clear()
 				pqa()	
@@ -82,6 +94,9 @@ def HAHALMAO():
 			elif xdlol == "exit":
 				clear()
 				exit()
+			elif xdlol == "m":
+				clear()
+				diff()
 			elif xdlol == "credits":
 				clear()
 				print("Made by pioliX000")
