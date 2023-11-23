@@ -9,109 +9,122 @@ from median_differential import median_diff
 
 clear()
 
-def HAHALMAO():
-	try:
-		def t():
-			lmao = input("\nCosine Theorem(ct), Sine Theorem(st) or back?: ")
-			if lmao == "ct":
-				clear()
-				costher()
-			elif lmao == "st":
-				clear()
-				sinther()
-			elif lmao == "back":
-				clear()
-				lol()
-			else:
-				print("bruh")
-				t()
+def main_menu():
+    try:
+        def trigonometry_menu():
+            try:
+                def perform_trigonometry_operations():
+                    choice = input("\nCosine Theorem(ct), Sine Theorem(st) or back?: ")
+                    if choice == "ct":
+                        clear()
+                        costher()
+                    elif choice == "st":
+                        clear()
+                        sinther()
+                    elif choice == "back":
+                        clear()
+                        main_menu()
+                    else:
+                        print("Invalid choice. Try again.")
+                        perform_trigonometry_operations()
 
-		def ta():
-			t()
-			XD = input("\nAgain?(Y/n): ")
-			if XD == "n":
-				clear()
-				lol()
-			else:
-				clear()
-				ta()
-				
-		def q():
-			quadratics()
-			XD = input("\nAgain?(Y/n): ")
-			if XD == "n":
-				clear()
-				lol()
-			else:
-				clear()
-				q()
-		
-		def lin():
-			linear_solve()
-			XD = input("\nAgain?(Y/n): ")
-			if XD == "n":
-				clear()
-				lol()
-			else:
-				clear()
-				lin()		
-				
-		def pqa():
-			pq()
-			XD = input("\nAgain?(Y/n): ")
-			if XD == "n":
-				clear()
-				lol()
-			else:
-				clear()
-				pqa()
+                def repeat_trigonometry_menu():
+                    perform_trigonometry_operations()
+                    repeat = input("\nAgain?(Y/n): ")
+                    if repeat.lower() == "n":
+                        clear()
+                        main_menu()
+                    else:
+                        clear()
+                        repeat_trigonometry_menu()
 
-		def diff():
-			clear()
-			median_diff()
-			XD = input("\nAgain?(Y/n): ")
-			if XD == "n":
-				clear()
-				lol()
-			else:
-				clear()
-				diff()
+                repeat_trigonometry_menu()
 
-		def lol():
-			xdlol = input("\ntrigonometry(t), pq(pq), quadratics(q), linear functions(l), median differential(m) or exit?: ")
-			if xdlol == "pq":
-				clear()
-				pqa()	
-			elif xdlol == "t":
-				clear()
-				ta()
-			elif xdlol == "l":
-			    clear()
-			    lin()
-			elif xdlol == "q":
-			    clear()
-			    q()
-			elif xdlol == "exit":
-				clear()
-				exit()
-			elif xdlol == "m":
-				clear()
-				diff()
-			elif xdlol == "credits":
-				clear()
-				print("Made by pioliX000")
-				lol()
+            except KeyboardInterrupt:
+                exit_prompt = input("\n\nExit? (Y/n): ")
+                if exit_prompt.lower() == "n":
+                    clear()
+                    main_menu()
+                else:
+                    clear()
+                    print("Made by pioliX000")
 
-		while True:
-			lol()
+        def pq_menu():
+            pq()
+            repeat = input("\nAgain?(Y/n): ")
+            if repeat.lower() == "n":
+                clear()
+                main_menu()
+            else:
+                clear()
+                pq_menu()
 
-	except KeyboardInterrupt:
-		stfu = input("\n\nexit? (Y/n): ")
-		if stfu == "n":
-			clear()
-			HAHALMAO()
-		else:
-			clear()
-			print("Made my pioliX000")
-			
-HAHALMAO()
+        def quadratic_menu():
+            quadratics()
+            repeat = input("\nAgain?(Y/n): ")
+            if repeat.lower() == "n":
+                clear()
+                main_menu()
+            else:
+                clear()
+                quadratic_menu()
+
+        def linear_menu():
+            linear_solve()
+            repeat = input("\nAgain?(Y/n): ")
+            if repeat.lower() == "n":
+                clear()
+                main_menu()
+            else:
+                clear()
+                linear_menu()
+
+        def median_differential_menu():
+            clear()
+            median_diff()
+            repeat = input("\nAgain?(Y/n): ")
+            if repeat.lower() == "n":
+                clear()
+                main_menu()
+            else:
+                clear()
+                median_differential_menu()
+
+        def display_menu():
+            user_choice = input("\nTrigonometry(t), PQ(pq), Quadratics(q), Linear Functions(l), Median Differential(m) or exit?: ")
+            if user_choice == "pq":
+                clear()
+                pq_menu()    
+            elif user_choice == "t":
+                clear()
+                trigonometry_menu()
+            elif user_choice == "l":
+                clear()
+                linear_menu()
+            elif user_choice == "q":
+                clear()
+                quadratic_menu()
+            elif user_choice == "exit":
+                clear()
+                exit()
+            elif user_choice == "m":
+                clear()
+                median_differential_menu()
+            elif user_choice == "credits":
+                clear()
+                print("Made by pioliX000")
+                display_menu()
+
+        while True:
+            display_menu()
+
+    except KeyboardInterrupt:
+        exit_prompt = input("\n\nExit? (Y/n): ")
+        if exit_prompt.lower() == "n":
+            clear()
+            main_menu()
+        else:
+            clear()
+            print("Made by pioliX000")
+
+main_menu()
