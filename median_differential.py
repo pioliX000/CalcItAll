@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
 
-def f(x):
-	return 2*(x-3)**2
+def median_diff():
+	function = input("Insert function(x^n == x**n, nx == n*x) f(x) = ")
 
-pairs = eval(input("give all pairs needed: "))
+	f = lambda x : eval(function)
+	
+	pairs = eval(input("give all pairs needed (seperated by a comma): "))
 
-for pair in pairs:
-	x1 = pair[0]
-	x2 = pair[1]
-
-	y1 = f(x1)
-	y2 = f(x2)
-
-	m = (y2-y1)/(x2-x1)
-
-	print(f"{pair}\t\t{m}")
+	if str(pairs).count(",") < 2:
+		pairs = [pairs]
+		
+	for pair in pairs:
+		x1 = pair[0]
+		x2 = pair[1]
+	
+		y1 = f(x1)
+		y2 = f(x2)
+	
+		m = (y2-y1)/(x2-x1)
+	
+		print(f"{pair}\t\t{m}")
