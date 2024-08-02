@@ -63,7 +63,6 @@ def Vertex():
     
         #calculate new c
         newc = round(-math.fabs(bdiv2)**2 + cdiva, 2)
-    #
     
         print(f"y = {a}[(x² {sign1} {math.fabs(bdiva)}x + {math.fabs(bdiv2)}²) {sign2} {math.fabs(newc)}]")
     
